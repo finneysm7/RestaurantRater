@@ -1,0 +1,9 @@
+<h1>Restaurants</h1>
+
+<ul>
+  <% @restaurants.each do |rest|%>
+    <li><%= link_to rest.name, restaurant_url(rest) %> <%= button_to 'Destroy Restaurant', restaurant_url(rest), method: :delete %></li>
+  <% end %>
+</ul>
+
+<%= link_to "New Restaurant", new_restaurant_url %>

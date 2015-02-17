@@ -1,0 +1,25 @@
+<h2>Edit Restaurant</h2>
+
+<form action="<%= restaurant_url(@restaurant) %>" method="post">
+  <input type="hidden" name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+  
+  <input type="hidden" name="_method" value="put">
+
+  <label>
+    Name
+    <input type="text" name="restaurant[name]" value="<%= @restaurant.name %>">
+  </label>
+
+  <label>
+   	Description
+    <textarea name="restaurant[description]"><%= @restaurant.description %></textarea>
+  </label>
+  
+  <label>
+	  Location
+	  <input type="text" name="restaurant[location]" value"<%= @restaurant.location %>">
+  </label>
+
+  <input type="submit" value="Update Link">
+</form>

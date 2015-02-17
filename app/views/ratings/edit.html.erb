@@ -1,0 +1,26 @@
+<h2>Edit Rating</h2>
+
+<form action="<%= rating_url(@rating) %>" method="post">
+    <input type="hidden" name="authenticity_token"
+     value="<%= form_authenticity_token %>">
+	 
+	 <input type="hidden" name="_method" value="patch">
+		  
+   <label for='val'>Value</label>
+   <select name='rating[value]' id='val'>
+  	 <% 1.upto 5 do |i|%>
+	 	<% if i == @rating.value%>
+			<option value='<%=i%>' selected><%=i%></option>
+		<% else %>
+			<option value='<%=i%>'><%=i%></option>
+		<% end %>
+  	 <%end%>
+   </select>
+
+    <label>
+      Description
+      <textarea name="rating[description]"><%= @rating.description%></textarea>
+    </label>
+
+    <input type="submit" value="Edit Rating">
+</form>

@@ -31,8 +31,6 @@ gem 'bcrypt'
 
 gem 'mongo_mapper'
 
-gem 'rails-backbone'
-
 gem 'better_errors'
 gem 'byebug'
 

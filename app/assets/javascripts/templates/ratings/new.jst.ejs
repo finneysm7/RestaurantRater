@@ -1,0 +1,23 @@
+<h3>New Rating</h3>
+<form>
+  <input type="hidden"
+         name="rating[restaurant_id]"
+         value="<%= restaurant.escape("id") %>">
+
+<label for='val'>Value</label>
+   <select name='rating[value]' id='val'>
+	<% for (var i = 1; i < 6; i++){%>
+		<option value='<%=i%>'><%=i%></option>
+  	 <%}%>
+   </select>
+ 
+  <label>
+    Description
+    <textarea name="rating[description]"></textarea>
+  </label>
+
+  <input type="submit">
+</form>
+
+<div class="preview">
+</div>

@@ -1,10 +1,12 @@
-class RestaurantsController < ApplicationController
+class Api::RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
+    render :json => @restaurants
   end
   
   def show
     @restaurant = Restaurant.find(params[:id])
+    render "api/restaurants/show"
   end
   
   def new
@@ -14,10 +16,9 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(rest_params)
     if @restaurant.save
-      redirect_to restaurant_url(@restaurant)
+      render :json => @restaurant
     else
-      flash.now[:errors] = @restaurant.errors.fullmessages
-      render :new
+      render :json => @restaurant.errors, :status => :unprocessable_entity
     end
   end
   
@@ -28,17 +29,16 @@ class RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find(params[:id])
     if @restaurant.update_attributes(rest_params)
-      redirect_to restaurant_url(@restaurant)
+      render :json => @restaurant
     else
-      flash.now[:errors] = @restaurant.errors.full_messages
-      render :edit
+      render :json => @restaurant.errors, :status => :unprocessable_entity
     end
   end
   
   def destroy
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
-    redirect_to restaurants_url
+    render :json => @restaurant
   end
   
   private

@@ -1,0 +1,25 @@
+<h2>Restaurants</h2>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th data-sort-col="id">ID</th>
+      <th data-sort-fn="_titleLowerCase">Title</th>
+    </tr>
+  </thead>
+
+  <tbody></tbody>
+</table> -->
+
+<ul>
+	<% restaurants.each(function (rest){ %>
+		<li><a href='#/restaurants/<%= rest.escape("id")%>'><%= rest.escape('name')%></a>
+			<ul>
+				<li><%= rest.escape('description') %></li>
+				<li><%= rest.escape('location') %></li>
+			</ul>
+		</li>
+	<% }); %>
+</ul>
+
+<a href="#/restaurants/new">New Restaurant</a>

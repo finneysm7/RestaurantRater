@@ -1,6 +1,7 @@
-class RatingsController < ApplicationController
+class Api::RatingsController < ApplicationController
   def index
     @ratings = Rating.all
+    render :json => @ratings
   end
   
   def show
@@ -16,7 +17,7 @@ class RatingsController < ApplicationController
     rating.restaurant_id = params[:restaurant_id]
     rating.save
     flash[:errors] = rating.errors
-    redirect_to restaurant_url(rating.restaurant_id)
+    render :json => rating
   end
   
   def edit
@@ -35,7 +36,6 @@ class RatingsController < ApplicationController
   
   def destroy
     @rating = Rating.find(params[:id])
-    byebug
     @rating.destroy
     redirect_to restaurant_url(@rating.restaurant_id)
   end

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root to: "restaurants#index"
+  root :to => "site#root"
   
-  resources :restaurants do
-    resources :ratings, only: [:create]
-  end 
-  resources :ratings, except: [:create]
+  namespace :api do
+    resources :restaurants do
+      resources :ratings, only: [:create, :index]
+    end
+    resources :ratings
+  end
 end

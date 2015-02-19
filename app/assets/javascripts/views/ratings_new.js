@@ -1,5 +1,5 @@
 Getable.Views.RatingsNew = Backbone.View.extend({
-  template: JST["templates/ratings/new"],
+  template: JST["ratings/new"],
   events: {
     "submit form": "submit",
     "keyup textarea": "renderPreview"

@@ -11,7 +11,7 @@
 // });
 
 window.Getable.Views.RestIndex = Backbone.View.extend({
-	template: JST["templates/restaurants/index"],
+	template: JST["restaurants/index"],
 	
 	initialize: function () {
 		this.listenTo(this.collection, "add change:title remove reset", this.render)

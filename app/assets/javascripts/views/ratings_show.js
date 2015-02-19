@@ -1,5 +1,5 @@
 Getable.Views.RatingsShow = Backbone.View.extend({
-  template: JST["templates/ratings/show"],
+  template: JST["ratings/show"],
 
   events: {
     "click button.destroy": "destroyRating",

@@ -1,5 +1,5 @@
 Getable.Views.RestsShow = Backbone.CompositeView.extend({
-  template: JST["templates/restaurants/show"],
+  template: JST["restaurants/show"],
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
@@ -53,7 +53,7 @@ Getable.Views.RestsShow = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent);
     this.attachSubviews();
-
+	this.averageStars();
     return this;
   }
   

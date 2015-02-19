@@ -1,5 +1,5 @@
 Getable.Views.RestsNew = Backbone.View.extend({
-	template: JST["templates/restaurants/new"],
+	template: JST["restaurants/new"],
 	
 	events: {
 		"submit form": "submit"

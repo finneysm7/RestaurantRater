@@ -34,7 +34,6 @@ Getable.Views.RatingsShow = Backbone.View.extend({
   },
 
   render: function () {
-	  debugger
     var renderedContent = this.template({ rating: this.model });
     this.$el.html(renderedContent);
 

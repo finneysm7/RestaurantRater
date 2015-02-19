@@ -17,10 +17,20 @@ Getable.Views.RestsShow = Backbone.CompositeView.extend({
     this.model.ratings().each(this.addRating.bind(this));
   },
   
+  averageStars: function () {
+	  var sum = 0;
+  	this.model.ratings().each(function (rate){
+  		sum += rate.get('value');
+  	});
+	var avg = sum / this.model.ratings().models.length;
+	this.$('.star-avg').html(avg);
+  },
+  
   addRating: function (rating) {
     var ratingsShow =
       new Getable.Views.RatingsShow({ model: rating });
     this.addSubview(".ratings", ratingsShow);
+	this.averageStars();
   },
 
   removeRating: function (rating) {
@@ -32,6 +42,7 @@ Getable.Views.RestsShow = Backbone.CompositeView.extend({
     );
 
     this.removeSubview(".ratings", subview);
+	this.averageStars();
   },
 
   render: function () {
@@ -44,13 +55,7 @@ Getable.Views.RestsShow = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this;
-  },
-  
-  averageStars: function () {
-	  var sum = 0;
-  	this.model.ratings().each(function (rate){
-  		sum += rate.get('value');
-  	})
-	
   }
+  
+ 
 });

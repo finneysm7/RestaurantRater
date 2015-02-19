@@ -16,7 +16,7 @@ Getable.Views.RestsShow = Backbone.CompositeView.extend({
 
     this.model.ratings().each(this.addRating.bind(this));
   },
-
+  
   addRating: function (rating) {
     var ratingsShow =
       new Getable.Views.RatingsShow({ model: rating });
@@ -44,5 +44,13 @@ Getable.Views.RestsShow = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this;
+  },
+  
+  averageStars: function () {
+	  var sum = 0;
+  	this.model.ratings().each(function (rate){
+  		sum += rate.get('value');
+  	})
+	
   }
 });

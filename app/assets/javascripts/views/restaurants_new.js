@@ -16,11 +16,11 @@ Getable.Views.RestsNew = Backbone.View.extend({
 		event.preventDefault();
 		debugger
 		var params = $(event.currentTarget).serializeJSON();
-		var newRest = new Getable.Models.Restautant(params["restaurant"]);
+		var newRest = new Getable.Models.Restaurant(params["restaurant"]);
 		
 		newRest.save({}, {
 			success: function (){
-				Getable.Collections.todos.add(newTodo);
+				Getable.Collections.restaurants.add(newRest);
 				Backbone.history.navigate("/", { trigger: true })
 			}
 		})

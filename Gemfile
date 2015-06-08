@@ -46,3 +46,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
